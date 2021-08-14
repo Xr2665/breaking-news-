@@ -36,19 +36,14 @@ $(function () {
       repassword: $("#form_reg [name=repassword]").val(),
       password: $("#form_reg [name=password]").val(),
     };
-    $.post(
-      "/api/login",
-      data,
-
-      function (res) {
-        if (res.code !== 0) {
-          return layer.mag(res.message);
-        }
-        layer.msg("注册成功!");
-        // 模拟点击
-        $("#link_login").click();
+    $.post("/api/reg", data, function (res) {
+      if (res.code !== 0) {
+        return layer.mag(res.message);
       }
-    );
+      layer.msg("注册成功!");
+      // 模拟点击
+      $("#link_login").click();
+    });
   });
   // 监听登录表单的提交事件
   $("#form_login").submit(function (e) {
