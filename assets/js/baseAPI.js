@@ -15,12 +15,12 @@ $.ajaxPrefilter(function (options) {
     // 在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
     if (
       res.responseJSON.code === 1 &&
-      res.responseJSON.message === "身份认证失败！"
+      res.responseJSON.message === "身份认证失败!"
     ) {
       // 1. 强制清空 token
       localStorage.removeItem("token");
       // 2. 强制跳转到登录页面
-      location.href = "http://127.0.0.1:5501/login.html";
+      location.href = "./login.html";
     }
   };
 });

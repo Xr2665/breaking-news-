@@ -62,7 +62,7 @@ $(function () {
         // 将登录成功得到的 token 字符串，保存到 localStorage 中
         localStorage.setItem("token", res.token);
         // 跳转到后台主页
-        location.href = "http://127.0.0.1:5501/index.html";
+        location.href = "/index.html";
       },
     });
   });

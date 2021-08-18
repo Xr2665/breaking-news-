@@ -26,32 +26,17 @@ $(function () {
 
 // 获取用户的基本信息
 function getUserInfo() {
+  // console.log(11111222222222);
   $.ajax({
     method: "GET",
     url: "/my/userinfo",
     success: function (res) {
-      if (res.status !== 0) {
+      if (res.code !== 0) {
         return layui.layer.msg("获取用户信息失败！");
       }
       // 调用 renderAvatar 渲染用户的头像
       renderAvatar(res.data);
     },
-    // 不论成功还是失败，最终都会调用 complete 回调函数
-    // complete:
-
-    // function(res) {
-    //   // console.log('执行了 complete 回调：')
-    //   // console.log(res)
-    //   // 在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
-
-    //   if (res.responseJSON.code== 1 &&){
-
-    //     // 1. 强制清空 token
-    //     localStorage.removeItem("token");
-    //     // 2. 强制跳转到登录页面
-    //     location.href = "/login.html";
-    //   }
-    // },
   });
 }
 
